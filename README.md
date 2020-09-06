@@ -2,7 +2,7 @@
 
 # unicorn-cli
 
-unicorn: 独角兽 （ 🦄） 
+unicorn: 独角兽 🦄 
 
 ## Introduction
 青鸢工作室前端开发脚手架
@@ -13,17 +13,18 @@ Windows用户需要在管理员模式下进行全局安装
 
 ## Installation
 ```node
-    npm install -g unicorn-cli
-    unicorn-cli create app-name
+npm install -g unicorn-cli
+unicorn-cli create app-name
 
 ```
 
 ## 本地调试及发布
 ```
 npm run watch
-npm run link
+npm link
 ```
 然后直接修改src里面的内容就可以进行调试
+
 commit message标准参考： [戳这里🤚](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uci6olwuf96)
 
 ## Features
