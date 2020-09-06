@@ -9,7 +9,7 @@
     "lint:fix": "eslint --fix --ext .js src"
   },
   "bin": {
-    "kite-cli": "./bin/www"
+    "unicorn-cli": "./bin/www"
   },
   "keywords": [],
   "author": "yining_byte",

@@ -34,7 +34,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_commander2.default.name('kite-cli');
+_commander2.default.name('unicorn-cli');
 var downloadGitPro = (0, _promisfy.promisfy)(_downloadGitRepo2.default);
 
 _commander2.default.command('create <app-name>').description('create a new project').usage('<app-name>').alias('c').action(async function (appName) {

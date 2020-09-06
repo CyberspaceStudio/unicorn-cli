@@ -8,7 +8,7 @@ import rm from 'rimraf';
 import { showCliSlogen } from './utils';
 import { name, version, templateEnum } from './constants';
 
-program.name('kite-cli');
+program.name('unicorn-cli');
 const downloadGitPro = promisfy(downloadGit);
 
 program
