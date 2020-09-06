@@ -1,5 +1,5 @@
 {
-  "name": "kite-cli",
+  "name": "unicorn-cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,7 @@
     "kite-cli": "./bin/www"
   },
   "keywords": [],
-  "author": "",
+  "author": "yining_byte",
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
