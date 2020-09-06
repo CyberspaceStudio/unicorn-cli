@@ -47,7 +47,7 @@ _commander2.default.command('create <app-name>').description('create a new proje
         var _ref = await Inquirer.prompt([{
             type: 'confirm',
             name: 'isOverwrite',
-            message: '文件夹已存在，是否选择覆盖'
+            message: '文件夹已存在，是否覆盖'
         }]),
             isOverwrite = _ref.isOverwrite;
 
@@ -61,7 +61,7 @@ _commander2.default.command('create <app-name>').description('create a new proje
     Inquirer.prompt([{
         type: 'list',
         name: 'projectType',
-        message: '请选择项目类型',
+        message: '你的项目类型是',
         choices: ['web', 'miniApp']
     }]).then(async function (_ref2) {
         var projectType = _ref2.projectType;

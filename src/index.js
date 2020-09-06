@@ -26,7 +26,7 @@ program
             const { isOverwrite } = await Inquirer.prompt([{
                 type: 'confirm',
                 name: 'isOverwrite',
-                message: '文件夹已存在，是否选择覆盖'
+                message: '文件夹已存在，是否覆盖'
             }]);
             if (!isOverwrite) {
                 process.exit(1);
@@ -38,7 +38,7 @@ program
         Inquirer.prompt([{
             type: 'list',
             name: 'projectType',
-            message: '请选择项目类型',
+            message: '你的项目类型是',
             choices: [
                 'web',
                 'miniApp',
