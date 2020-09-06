@@ -1,7 +1,7 @@
 {
   "name": "unicorn-cli",
   "version": "1.0.2",
-  "description": "",
+  "description": "unicorn-cli",
   "main": "index.js",
   "scripts": {
     "compile": "babel src -d dist",
