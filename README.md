@@ -12,6 +12,7 @@ unicorn: 独角兽 🦄
 Windows用户需要在管理员模式下进行全局安装
 
 ## Installation
+
 ```node
 npm install -g unicorn-cli
 unicorn-cli create app-name
