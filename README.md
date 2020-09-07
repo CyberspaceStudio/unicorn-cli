@@ -30,6 +30,14 @@ npm link
 
 3. 每次开发都在自己的分支上开发，master是保护分支，需要提PR找一个人帮你A了之后才能合入 
 
+4. 禁止使用git commit！！！！ 像下面这样commit，保证commit规范
+
+```node
+npm run commit
+...跟随命令行操作
+
+```
+
 > commit message标准参考： [戳这里🤚](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uci6olwuf96)
 
 ## Features
@@ -37,6 +45,7 @@ npm link
 - [x] 支持create命令
 - [x] web,miniapp两种开发环境的模板下载
 - [x] eslint
+- [x] changelog
 
 ## Issues
 
