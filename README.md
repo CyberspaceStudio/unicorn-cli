@@ -20,13 +20,17 @@ unicorn-cli create app-name
 ```
 
 ## 本地调试及发布
+1. 拉到本地后新建自己的feature分支，进行开发
+
 ```
 npm run watch
 npm link
 ```
-然后直接修改src里面的内容就可以进行调试
+2. 然后直接修改src里面的内容就可以进行调试
 
-commit message标准参考： [戳这里🤚](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uci6olwuf96)
+3. 每次开发都在自己的分支上开发，master是保护分支，需要提PR找一个人帮你A了之后才能合入 
+
+> commit message标准参考： [戳这里🤚](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uci6olwuf96)
 
 ## Features
 - [x] 命令行直接使用 unicorn-cli
