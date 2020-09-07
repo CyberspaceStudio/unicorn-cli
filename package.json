@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "babel src -d dist",
     "watch": "npm run compile -- --watch",
-    "lint:fix": "eslint --fix --ext .js src"
+    "lint:fix": "eslint --fix --ext .js src",
+    "commit": "git-cz"
   },
   "bin": {
     "unicorn-cli": "./bin/www"
@@ -22,6 +23,8 @@
     "@commitlint/config-conventional": "^9.1.2",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.1.0",
+    "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.8.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.3.0"
@@ -45,8 +48,13 @@
   },
   "lint-staged": {
     "src/*_/_.{js}": [
-        "npm run lint:fix",
-        "git add"
+      "npm run lint:fix",
+      "git add"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
