@@ -9,7 +9,7 @@ unicorn: 独角兽 🦄
 
 ## Requirements
 
-Windows用户需要在管理员模式下进行全局安装
+需要管理员权限在全局安装
 
 ## Installation
 
