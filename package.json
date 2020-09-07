@@ -1,6 +1,6 @@
 {
   "name": "unicorn-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "unicorn-cli",
   "main": "index.js",
   "scripts": {
@@ -40,8 +40,5 @@
       "pre-commit": "npm run lint:fix",
       "pre-push": "npm run compile"
     }
-  },
-  "publishConfig": {
-    "registry": "https://github.com/CyberspaceStudio/unicorn-cli"
   }
 }
