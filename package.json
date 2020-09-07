@@ -7,7 +7,7 @@
     "compile": "babel src -d dist",
     "watch": "npm run compile -- --watch",
     "lint:fix": "eslint --fix --ext .js src",
-    "commit": "git-cz"
+    "commit": "git add . && git-cz"
   },
   "bin": {
     "unicorn-cli": "./bin/www"
