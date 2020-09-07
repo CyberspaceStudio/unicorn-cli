@@ -38,11 +38,10 @@ npm link
 - [x] web,miniapp两种开发环境的模板下载
 - [x] eslint
 
-## Issues（想到的功能可以改下面这部分提pr，不过建议直接提issue）
+## Issues
 
-- [ ] changelog引入
-- [ ] commitmsg lint
-- [ ] 透传配置到模板
-- [ ] 两套模板的规范化
+[点我去提issue👉](https://github.com/CyberspaceStudio/unicorn-cli/issues)
+
+
 
 
