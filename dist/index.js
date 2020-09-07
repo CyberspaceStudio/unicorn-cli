@@ -50,7 +50,7 @@ _commander2.default.command('create <app-name>').description('create a new proje
         var _ref = await Inquirer.prompt([{
             type: 'confirm',
             name: 'isOverwrite',
-            message: '文件夹已存在，是否覆盖'
+            message: '文件夹已存在，是否选择覆盖'
         }]),
             isOverwrite = _ref.isOverwrite;
 

@@ -26,7 +26,7 @@ program
             const { isOverwrite } = await Inquirer.prompt([{
                 type: 'confirm',
                 name: 'isOverwrite',
-                message: '文件夹已存在，是否覆盖'
+                message: '文件夹已存在，是否选择覆盖'
             }]);
             if (!isOverwrite) {
                 process.exit(1);
@@ -43,7 +43,7 @@ program
             ],
         }]).then(async ({ projectType }) => {
             rm.sync(appName)
-            
+
             const { repo, devCommand } = templateEnum[projectType];
             const spinner = ora('🚀 template downloading...');
 
