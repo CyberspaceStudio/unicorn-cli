@@ -4,7 +4,8 @@ import downloadGit from 'download-git-repo';
 import { promisfy } from 'promisfy';
 import ora from 'ora';
 import fs from 'fs';
-import rm from 'rimraf';
+import rm from 'rimraf'
+import mkdirp from 'mkdirp'
 import { showCliSlogen } from './utils';
 import { name, version, templateEnum } from './constants';
 
@@ -17,7 +18,6 @@ program
     .usage('<app-name>')
     .alias('c')
     .action(async (appName) => {
-        const targetDir = process.cwd() + '\\' + appName;
         showCliSlogen();
 
         const dirs = fs.readdirSync(process.cwd());
@@ -30,26 +30,27 @@ program
             }]);
             if (!isOverwrite) {
                 process.exit(1);
-            } else {
-                rm.sync(targetDir);
             }
         }
                 
         Inquirer.prompt([{
             type: 'list',
             name: 'projectType',
-            message: '你的项目类型是',
+            message: '选择你的项目类型',
             choices: [
                 'web',
                 'miniApp',
             ],
         }]).then(async ({ projectType }) => {
+            rm.sync(appName)
+            
             const { repo, devCommand } = templateEnum[projectType];
             const spinner = ora('🚀 template downloading...');
 
             spinner.start();
             try {
-                await downloadGitPro(repo, targetDir);
+                mkdirp.sync(appName)
+                await downloadGitPro(repo, appName);
                 spinner.succeed('downloaded');
 
                 console.log('');

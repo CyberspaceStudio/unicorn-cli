@@ -26,6 +26,10 @@ var _rimraf = require('rimraf');
 
 var _rimraf2 = _interopRequireDefault(_rimraf);
 
+var _mkdirp = require('mkdirp');
+
+var _mkdirp2 = _interopRequireDefault(_mkdirp);
+
 var _utils = require('./utils');
 
 var _constants = require('./constants');
@@ -38,7 +42,6 @@ _commander2.default.name('unicorn-cli');
 var downloadGitPro = (0, _promisfy.promisfy)(_downloadGitRepo2.default);
 
 _commander2.default.command('create <app-name>').description('create a new project').usage('<app-name>').alias('c').action(async function (appName) {
-    var targetDir = process.cwd() + '\\' + appName;
     (0, _utils.showCliSlogen)();
 
     var dirs = _fs2.default.readdirSync(process.cwd());
@@ -53,18 +56,19 @@ _commander2.default.command('create <app-name>').description('create a new proje
 
         if (!isOverwrite) {
             process.exit(1);
-        } else {
-            _rimraf2.default.sync(targetDir);
         }
     }
 
     Inquirer.prompt([{
         type: 'list',
         name: 'projectType',
-        message: '你的项目类型是',
+        message: '选择你的项目类型',
         choices: ['web', 'miniApp']
     }]).then(async function (_ref2) {
         var projectType = _ref2.projectType;
+
+        _rimraf2.default.sync(appName);
+
         var _templateEnum$project = _constants.templateEnum[projectType],
             repo = _templateEnum$project.repo,
             devCommand = _templateEnum$project.devCommand;
@@ -73,7 +77,8 @@ _commander2.default.command('create <app-name>').description('create a new proje
 
         spinner.start();
         try {
-            await downloadGitPro(repo, targetDir);
+            _mkdirp2.default.sync(appName);
+            await downloadGitPro(repo, appName);
             spinner.succeed('downloaded');
 
             console.log('');
