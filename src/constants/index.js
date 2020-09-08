@@ -3,11 +3,11 @@ import { name, version } from '../../package.json';
 const templateEnum = {
     web: {
         repo: 'ZYK1236/react-ts-cli',
-        devCommand: 'yarn start'
+        devCommand: 'npm run dev'
     },
     miniApp: {
         repo: 'CyberspaceStudio/miniapp-init',
-        devCommand: 'yarn dev:weapp|tt|...'
+        devCommand: 'npm run dev:weapp|tt|...'
     }
 };
 
