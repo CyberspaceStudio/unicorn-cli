@@ -20,6 +20,15 @@ program
     .action(async (appName) => {
         showCliSlogen();
 
+        const {isUpdatePluginInit} = await Inquirer.prompt([{
+            type: 'confirm',
+            name: 'isUpdatePluginInit',
+            message: '请确认已全局安装 npm-check-updates'
+        }])
+        if (!isUpdatePluginInit) {
+            process.exit(1);
+        }
+
         const dirs = fs.readdirSync(process.cwd());
 
         if (dirs.includes(appName)) {
@@ -32,7 +41,7 @@ program
                 process.exit(1);
             }
         }
-                
+
         Inquirer.prompt([{
             type: 'list',
             name: 'projectType',
@@ -56,7 +65,9 @@ program
                 console.log('');
                 console.log(' Now Run:');
                 console.log(`  cd ${appName}`);
-                console.log('  yarn install');
+                // 自动升级所有的包到最新版本   暂时没有风险
+                console.log(`  ncu -u`);
+                console.log('  npm install');
                 console.log(`  ${devCommand}`);
                 console.log('');
             } catch (e) {

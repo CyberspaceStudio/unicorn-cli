@@ -44,15 +44,26 @@ var downloadGitPro = (0, _promisfy.promisfy)(_downloadGitRepo2.default);
 _commander2.default.command('create <app-name>').description('create a new project').usage('<app-name>').alias('c').action(async function (appName) {
     (0, _utils.showCliSlogen)();
 
+    var _ref = await Inquirer.prompt([{
+        type: 'confirm',
+        name: 'isUpdatePluginInit',
+        message: '请确认已全局安装 npm-check-updates'
+    }]),
+        isUpdatePluginInit = _ref.isUpdatePluginInit;
+
+    if (!isUpdatePluginInit) {
+        process.exit(1);
+    }
+
     var dirs = _fs2.default.readdirSync(process.cwd());
 
     if (dirs.includes(appName)) {
-        var _ref = await Inquirer.prompt([{
+        var _ref2 = await Inquirer.prompt([{
             type: 'confirm',
             name: 'isOverwrite',
             message: '文件夹已存在，是否选择覆盖'
         }]),
-            isOverwrite = _ref.isOverwrite;
+            isOverwrite = _ref2.isOverwrite;
 
         if (!isOverwrite) {
             process.exit(1);
@@ -64,8 +75,8 @@ _commander2.default.command('create <app-name>').description('create a new proje
         name: 'projectType',
         message: '选择你的项目类型',
         choices: ['web', 'miniApp']
-    }]).then(async function (_ref2) {
-        var projectType = _ref2.projectType;
+    }]).then(async function (_ref3) {
+        var projectType = _ref3.projectType;
 
         _rimraf2.default.sync(appName);
 
@@ -84,7 +95,9 @@ _commander2.default.command('create <app-name>').description('create a new proje
             console.log('');
             console.log(' Now Run:');
             console.log('  cd ' + appName);
-            console.log('  yarn install');
+            // 自动升级所有的包到最新版本   暂时没有风险
+            console.log('  ncu -u');
+            console.log('  npm install');
             console.log('  ' + devCommand);
             console.log('');
         } catch (e) {
