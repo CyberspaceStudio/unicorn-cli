@@ -33,7 +33,7 @@ program
             }
         }
 
-        Inquirer.prompt([{
+        const { projectType } = await Inquirer.prompt([{
             type: 'list',
             name: 'projectType',
             message: '选择你的项目类型',
@@ -41,28 +41,28 @@ program
                 'web',
                 'miniApp',
             ],
-        }]).then(async ({ projectType }) => {
-            rm.sync(appName)
+        }])
 
-            const { repo, devCommand } = templateEnum[projectType];
-            const spinner = ora('🚀 template downloading...');
+        rm.sync(appName)
 
-            spinner.start();
-            try {
-                mkdirp.sync(appName)
-                await downloadGitPro(repo, appName);
-                spinner.succeed('downloaded');
+        const { repo, devCommand } = templateEnum[projectType];
+        const spinner = ora('🚀 template downloading...');
 
-                console.log('');
-                console.log(' Now Run:');
-                console.log(`  cd ${appName}`);
-                console.log('  npm install');
-                console.log(`  ${devCommand}`);
-                console.log('');
-            } catch (e) {
-                spinner.stop('download error');
-            }
-        });
+        spinner.start();
+        try {
+            mkdirp.sync(appName)
+            await downloadGitPro(repo, appName);
+            spinner.succeed('downloaded');
+
+            console.log('');
+            console.log(' Now Run:');
+            console.log(`  cd ${appName}`);
+            console.log('  npm install');
+            console.log(`  ${devCommand}`);
+            console.log('');
+        } catch (e) {
+            spinner.stop('download error');
+        }
     });
 
 program

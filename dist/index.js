@@ -59,38 +59,37 @@ _commander2.default.command('create <app-name>').description('create a new proje
         }
     }
 
-    Inquirer.prompt([{
+    var _ref2 = await Inquirer.prompt([{
         type: 'list',
         name: 'projectType',
         message: '选择你的项目类型',
         choices: ['web', 'miniApp']
-    }]).then(async function (_ref2) {
-        var projectType = _ref2.projectType;
+    }]),
+        projectType = _ref2.projectType;
 
-        _rimraf2.default.sync(appName);
+    _rimraf2.default.sync(appName);
 
-        var _templateEnum$project = _constants.templateEnum[projectType],
-            repo = _templateEnum$project.repo,
-            devCommand = _templateEnum$project.devCommand;
+    var _templateEnum$project = _constants.templateEnum[projectType],
+        repo = _templateEnum$project.repo,
+        devCommand = _templateEnum$project.devCommand;
 
-        var spinner = (0, _ora2.default)('🚀 template downloading...');
+    var spinner = (0, _ora2.default)('🚀 template downloading...');
 
-        spinner.start();
-        try {
-            _mkdirp2.default.sync(appName);
-            await downloadGitPro(repo, appName);
-            spinner.succeed('downloaded');
+    spinner.start();
+    try {
+        _mkdirp2.default.sync(appName);
+        await downloadGitPro(repo, appName);
+        spinner.succeed('downloaded');
 
-            console.log('');
-            console.log(' Now Run:');
-            console.log('  cd ' + appName);
-            console.log('  npm install');
-            console.log('  ' + devCommand);
-            console.log('');
-        } catch (e) {
-            spinner.stop('download error');
-        }
-    });
+        console.log('');
+        console.log(' Now Run:');
+        console.log('  cd ' + appName);
+        console.log('  npm install');
+        console.log('  ' + devCommand);
+        console.log('');
+    } catch (e) {
+        spinner.stop('download error');
+    }
 });
 
 _commander2.default.version(_constants.name + ' ' + _constants.version).parse(process.argv);
