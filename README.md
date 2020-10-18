@@ -38,7 +38,7 @@ npm run commit
 
 ```
 
-> commit message标准参考： [戳这里🤚](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uci6olwuf96)
+> commit message标准参考： [戳这里](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uci6olwuf96)
 
 ## Features
 - [x] 命令行直接使用 unicorn-cli
