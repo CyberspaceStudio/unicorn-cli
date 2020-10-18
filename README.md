@@ -36,7 +36,7 @@ npm link
 npm run commit
 ...跟随命令行操作
 
-```
+...npm install -g commitizen 安装Commitizen
 
 > commit message标准参考： [戳这里](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uci6olwuf96)
 
